@@ -271,25 +271,28 @@ Designed to empower **millions of users and vendors**, from Tier-2 India to glob
 printable-platform/
 │
 ├── README.md
-├── package.json                 # Root scripts (lint, format, turbo, etc.)
-├── tsconfig.base.json            # Shared TS config
+├── package.json                 # Root scripts
+├── tsconfig.base.json           # Shared TypeScript config
 ├── .gitignore
 │
-├── docs/                         # Architecture & system documentation
+├── docs/                        # Architecture & documentation
 │   ├── architecture.md
 │   ├── infrastructure.md
 │   ├── api-guidelines.md
 │   ├── security.md
 │   └── roadmap.md
 │
-├── frontend/                     # Web application (Next.js)
-│   ├── web/
-│   │   ├── app/                  # Next.js App Router
+├── frontend/                    # Web (Responsive for Desktop & Mobile)
+│   ├── web/                     # User-facing app
+│   │   ├── app/                 # Next.js App Router
 │   │   ├── components/
+│   │   │   ├── ui/              # shadcn/ui components
+│   │   │   ├── layout/
+│   │   │   └── common/
 │   │   ├── hooks/
 │   │   ├── lib/
-│   │   ├── services/             # API clients
-│   │   ├── store/                # Zustand stores
+│   │   ├── services/            # API clients
+│   │   ├── store/               # Zustand stores
 │   │   ├── styles/
 │   │   ├── public/
 │   │   ├── middleware.ts
@@ -298,32 +301,19 @@ printable-platform/
 │   │   ├── postcss.config.js
 │   │   └── package.json
 │   │
-│   └── admin/                    # Admin dashboard (Next.js)
+│   └── admin/                   # Admin dashboard (Web)
 │       ├── app/
 │       ├── components/
 │       ├── services/
 │       ├── store/
+│       ├── styles/
 │       └── package.json
 │
-├── mobile/                       # React Native (Expo)
-│   └── app/
-│       ├── src/
-│       │   ├── screens/
-│       │   ├── components/
-│       │   ├── services/
-│       │   ├── store/
-│       │   ├── utils/
-│       │   └── i18n/
-│       ├── assets/
-│       ├── app.json
-│       └── package.json
-│
-├── backend/                      # Node.js Microservices
-│   ├── gateway/                  # API Gateway (REST / GraphQL)
+├── backend/                     # Node.js Microservices
+│   ├── gateway/                 # API Gateway
 │   │   ├── src/
-│   │   │   ├── plugins/
 │   │   │   ├── routes/
-│   │   │   ├── graphql/
+│   │   │   ├── plugins/
 │   │   │   └── index.ts
 │   │   ├── Dockerfile
 │   │   └── package.json
@@ -332,11 +322,11 @@ printable-platform/
 │   │   ├── auth-service/
 │   │   │   ├── src/
 │   │   │   │   ├── modules/
-│   │   │   │   │   └── auth/
-│   │   │   │   ├── routes/
-│   │   │   │   ├── plugins/
-│   │   │   │   ├── utils/
-│   │   │   │   └── server.ts
+│   │   │   │   └── auth/
+│   │   │   ├── routes/
+│   │   │   ├── plugins/
+│   │   │   ├── utils/
+│   │   │   └── server.ts
 │   │   │   ├── prisma/
 │   │   │   │   └── schema.prisma
 │   │   │   ├── Dockerfile
@@ -352,15 +342,15 @@ printable-platform/
 │   │   ├── ai-service/
 │   │   └── admin-service/
 │   │
-│   ├── shared/                   # Shared backend utilities
+│   ├── shared/                  # Shared backend utilities
 │   │   ├── logger/
 │   │   ├── auth/
 │   │   ├── constants/
 │   │   └── types/
 │   │
-│   └── docker-compose.yml         # Local backend orchestration
+│   └── docker-compose.yml        # Local backend orchestration
 │
-├── infra/                        # Infrastructure as Code & configs
+├── infra/                       # Infrastructure configs
 │   ├── nginx/
 │   │   └── nginx.conf
 │   ├── docker/
@@ -374,13 +364,13 @@ printable-platform/
 │       ├── backup.sh
 │       └── deploy.sh
 │
-├── .github/                      # CI/CD
+├── .github/                     # CI/CD
 │   └── workflows/
 │       ├── backend.yml
 │       ├── frontend.yml
 │       └── deploy.yml
 │
-└── tools/                        # Dev tools & scripts
+└── tools/                       # Developer utilities
     ├── db-migrate/
     ├── seed/
     └── mock-data/
