@@ -270,110 +270,33 @@ Designed to empower **millions of users and vendors**, from Tier-2 India to glob
 
 printable-platform/
 │
-├── README.md
-├── package.json                 # Root scripts
-├── tsconfig.base.json           # Shared TypeScript config
-├── .gitignore
-│
-├── docs/                        # Architecture & documentation
-│   ├── architecture.md
-│   ├── infrastructure.md
-│   ├── api-guidelines.md
-│   ├── security.md
-│   └── roadmap.md
-│
-├── frontend/                    # Web (Responsive for Desktop & Mobile)
-│   ├── web/                     # User-facing app
-│   │   ├── app/                 # Next.js App Router
-│   │   ├── components/
-│   │   │   ├── ui/              # shadcn/ui components
-│   │   │   ├── layout/
-│   │   │   └── common/
-│   │   ├── hooks/
-│   │   ├── lib/
-│   │   ├── services/            # API clients
-│   │   ├── store/               # Zustand stores
-│   │   ├── styles/
-│   │   ├── public/
-│   │   ├── middleware.ts
-│   │   ├── next.config.js
-│   │   ├── tailwind.config.js
-│   │   ├── postcss.config.js
-│   │   └── package.json
-│   │
-│   └── admin/                   # Admin dashboard (Web)
+├── frontend/                 # Next.js App
+│   └── web/
 │       ├── app/
+│       │   ├── (auth)/
+│       │   ├── dashboard/
+│       │   ├── orders/
+│       │   └── api/           # Backend APIs (Serverless)
+│       │       ├── auth/
+│       │       ├── users/
+│       │       ├── orders/
+│       │       └── files/
+│       │
 │       ├── components/
+│       ├── lib/
 │       ├── services/
 │       ├── store/
 │       ├── styles/
+│       ├── public/
+│       ├── middleware.ts
+│       ├── next.config.js
+│       ├── tailwind.config.js
 │       └── package.json
 │
-├── backend/                     # Node.js Microservices
-│   ├── gateway/                 # API Gateway
-│   │   ├── src/
-│   │   │   ├── routes/
-│   │   │   ├── plugins/
-│   │   │   └── index.ts
-│   │   ├── Dockerfile
-│   │   └── package.json
-│   │
-│   ├── services/
-│   │   ├── auth-service/
-│   │   │   ├── src/
-│   │   │   │   ├── modules/
-│   │   │   │   └── auth/
-│   │   │   ├── routes/
-│   │   │   ├── plugins/
-│   │   │   ├── utils/
-│   │   │   └── server.ts
-│   │   │   ├── prisma/
-│   │   │   │   └── schema.prisma
-│   │   │   ├── Dockerfile
-│   │   │   └── package.json
-│   │   │
-│   │   ├── user-service/
-│   │   ├── vendor-service/
-│   │   ├── file-service/
-│   │   ├── order-service/
-│   │   ├── campaign-service/
-│   │   ├── notification-service/
-│   │   ├── billing-service/
-│   │   ├── ai-service/
-│   │   └── admin-service/
-│   │
-│   ├── shared/                  # Shared backend utilities
-│   │   ├── logger/
-│   │   ├── auth/
-│   │   ├── constants/
-│   │   └── types/
-│   │
-│   └── docker-compose.yml        # Local backend orchestration
+├── docs/                     # Team documentation
+│   ├── project-overview.md
+│   ├── api-contracts.md
+│   ├── frontend-guide.md
+│   └── roadmap.md
 │
-├── infra/                       # Infrastructure configs
-│   ├── nginx/
-│   │   └── nginx.conf
-│   ├── docker/
-│   │   ├── postgres/
-│   │   ├── redis/
-│   │   └── minio/
-│   ├── monitoring/
-│   │   ├── prometheus.yml
-│   │   └── grafana/
-│   └── scripts/
-│       ├── backup.sh
-│       └── deploy.sh
-│
-├── .github/                     # CI/CD
-│   └── workflows/
-│       ├── backend.yml
-│       ├── frontend.yml
-│       └── deploy.yml
-│
-└── tools/                       # Developer utilities
-    ├── db-migrate/
-    ├── seed/
-    └── mock-data/
-
-
-**Printable — Build Once. Scale Everywhere.**
+└── README.md
