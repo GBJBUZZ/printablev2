@@ -1,6 +1,8 @@
 # printablev2
 Printable Version 2
 
+
+
 # Printable – Global Technology Blueprint
 
 Printable is a **high-scale, modular, cloud-native ecosystem** built to power **on-demand printing, document utilities, and offline OOH (Out-Of-Home) campaign execution** across India and global markets.
