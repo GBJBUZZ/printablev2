@@ -1,0 +1,56 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image'
+import {useRouter} from 'next/navigation'
+export default function LoadingPage() {
+  const [fileName, setFileName] = useState<string | null>(null);
+  const [progress, setProgress] = useState(0);
+  
+const router =useRouter();
+  useEffect(() => {
+    const name = sessionStorage.getItem('selectedFileName');
+    setFileName(name);
+
+
+    // Simulate loading progress
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 5;
+      });
+    }, 200); // every 200ms progress 5%
+
+    return () => clearInterval(interval);
+  }, []);
+  useEffect(()=>{
+   
+    if(progress===100){
+        router.push('/genarate-questions/options')
+    }
+  },[progress,router])
+
+  return (
+    <>
+         <h1 className='flex items-center gap-2 bg-[#FFFFFF] font-bold text-[24px] px-2 h-[40px]'>Genarate Questions</h1>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#E6E6ED] p-4">
+      <div className="text-center flex flex-col items-center justify-center">
+        <Image alt='image' src='/pdfformat.png' width={229} height={275}/>
+        {fileName && <p className="text-[#555555] text-[14px] mb-2">{fileName}</p>}
+        <div className="text-[24px]">Extracting Text...</div>
+        <div className="w-[450px] h-[15px] bg-gray-300 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-[#06044B] to-[#61E987] transition-all duration-200"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+
+        <div className="text-sm text-gray-600 mt-2">{progress}%</div>
+      </div>
+    </main>
+    </>
+  );
+}

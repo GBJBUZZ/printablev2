@@ -1,0 +1,173 @@
+@import "tailwindcss";
+:root {
+    --background: black;
+    --foreground: #171717;
+}
+
+/* Thin, modern scrollbar */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #999999;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sign-document {
+    background: #e6e6ed;
+    height: fit-content;
+    overflow-y: hidden;
+}
+
+.doc-title {
+    padding: 12px 13px 12px 20px;
+    gap: 10px;
+    height: 40px;
+    width: 100%;
+    box-shadow:
+        rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-request,
+.signingTool {
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #dffbe7 0%, #cdcddb 100%);
+    border-right: 1px solid #c9c9c9;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #ffffff;
+        --foreground: #ededed;
+    }
+}
+
+body {
+    background: var(--background);
+    color: black;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.7s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+input[type="color"] {
+    caret-color: transparent;
+    /* hides the blinking cursor */
+    outline: none;
+    /* removes blue/black focus ring */
+}
+
+.card-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 1;
+}
+
+.doc-title {
+    z-index: 50;
+}
+
+.border-top {
+    border-top: 1px solid #c9c9c9;
+    /* or any color and width */
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.slide-down {
+    animation: slideDown 0.3s ease-in-out forwards;
+}
+
+@keyframes fade-slide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.download-btn {
+    background: greenyellow;
+    border-radius: 10px;
+    border: 2px solid black;
+    animation: toAndFroMotion 1s ease-in-out infinite;
+}
+
+.download-btn:hover {
+    border-color: greenyellow;
+    animation-play-state: paused;
+    color: white;
+    background: black;
+}
+
+@keyframes toAndFroMotion {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+    }
+    35% {
+        transform: translateY(7px);
+        box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.45);
+        /* small, dense shadow close to object */
+    }
+    70% {
+        transform: translateY(-7px);
+        box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.15);
+        /* large, soft shadow = object far from ground */
+    }
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.animate-fade-slide {
+    animation: fade-slide 0.3s ease-out forwards;
+}

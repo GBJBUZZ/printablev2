@@ -1,0 +1,62 @@
+{
+    "msg": "files fethched !!",
+    "data": [{
+            "folderId": null,
+            "folderName": "Root",
+            "files": [{
+                    "fileId": "1746798000225",
+                    "fileName": "signed (21).pdf",
+                    "fileUrl": "https://blog-storage-printable.s3.amazonaws.com/documents/1746798000225_undefined",
+                    "fileType": "application/pdf",
+                    "fileSize": 147116
+                },
+                {
+                    "fileId": "1746786635362",
+                    "fileName": "roshan-pdf.pdf",
+                    "fileUrl": "https://blog-storage-printable.s3.amazonaws.com/documents/1746786635362_roshan-pdf.pdf",
+                    "fileType": "application/pdf",
+                    "fileSize": 268286
+                },
+                {
+                    "fileId": "1746902510599",
+                    "fileName": "new.pdf",
+                    "fileUrl": "https://blog-storage-printable.s3.amazonaws.com/documents/1746902510599_new.pdf",
+                    "fileType": "application/pdf",
+                    "fileSize": 148618
+                },
+                {
+                    "fileId": "1747160112076",
+                    "fileName": "signed (8).pdf",
+                    "fileUrl": "https://blog-storage-printable.s3.amazonaws.com/documents/1747160112076_signed (8).pdf",
+                    "fileType": "application/pdf",
+                    "fileSize": 1147409
+                },
+                {
+                    "fileId": "1747043331706",
+                    "fileName": "final-test2.pdf",
+                    "fileUrl": "https://blog-storage-printable.s3.amazonaws.com/documents/1747043331706_undefined",
+                    "fileType": "application/pdf",
+                    "fileSize": 476104
+                },
+                {
+                    "fileId": "1747151957617",
+                    "fileName": "res (2).pdf",
+                    "fileUrl": "https://blog-storage-printable.s3.amazonaws.com/documents/1747151957617_undefined",
+                    "fileType": "application/pdf",
+                    "fileSize": 146762
+                }
+            ]
+        },
+        {
+            "folderId": "17ba6704-2706-48b3-9c59-4c401add6154",
+            "folderName": "roshan",
+            "files": [{
+                "fileId": "1746878500732",
+                "fileName": "new2.pdf",
+                "fileUrl": "https://blog-storage-printable.s3.amazonaws.com/documents/1746878500732_undefined",
+                "fileType": "application/pdf",
+                "fileSize": 1370396
+            }]
+        }
+    ]
+}

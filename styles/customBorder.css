@@ -1,0 +1,7 @@
+.custom-dashed-border {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #06044B;
+  border-image: repeating-linear-gradient(45deg, #06044B 0%, #06044B 10px, transparent 10px, transparent 20px) 1;
+  border-radius: 20px;
+}
