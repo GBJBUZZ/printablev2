@@ -25,7 +25,15 @@ const Footer = [
       "Translate PDF",
       "AI Questions Generator",
     ],
+
+    additionalContent: [
+      {
+        Heading: "AI PRESENTATION MAKER",
+        NavLink: ["Generate PPT"],
+      },
+    ],
   },
+
   {
     Heading: "VIEW & EDIT",
     NavLink: [
@@ -66,13 +74,10 @@ const Footer = [
     ],
   },
   {
-    Heading: "AI PRESENTATION MAKER",
-    NavLink: ["Generate PPT"],
+    Heading: "SIGN",
+    NavLink: ["Sign PDF"],
+
     additionalContent: [
-      {
-        Heading: "SIGN",
-        NavLink: ["Sign PDF"],
-      },
       {
         Heading: "COMPRESS",
         NavLink: ["Compress PDF"],
