@@ -13,6 +13,7 @@ const Genarate_quest = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
 
+  
   // Debugging line to check the selectedFile prop
   console.log("Selected File:", selectedFile);
 
