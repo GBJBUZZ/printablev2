@@ -76,9 +76,9 @@ const tools = [
           { icon: <FaObjectGroup size={16} />, label: "Merge PDF", link: "/Organize" },
           { icon: <FaCodeBranch size={16} />, label: "Split PDF", link: "/Organize-Split-PDF/Pdf-Upload" },
           { icon: <FaRedo size={16} />, label: "Rotate PDF", link: "" },
-          { icon: <FaTrash size={16} />, label: "Delete PDF", link: "" },
-          { icon: <FaFileExport size={16} />, label: "Extract PDF", link: "" },
-          { icon: <FaTh size={16} />, label: "Organize PDF", link: "" },
+          { icon: <FaTrash size={16} />, label: "Delete PDF", link: "/Organize/Delete-pdf" },
+          { icon: <FaFileExport size={16} />, label: "Extract PDF", link: "/Organize/Extract-pdf" },
+          { icon: <FaTh size={16} />, label: "Organize PDF", link: "/Organize/Organize-pdf" },
         ],
       },
     ],
@@ -88,8 +88,8 @@ const tools = [
       {
         title: "PDF Security",
         items: [
-          { icon: <FaUnlock size={16} />, label: "Unlock PDF", link: "" },
-          { icon: <FaLock size={16} />, label: "Lock PDF", link: "" },
+          { icon: <FaUnlock size={16} />, label: "Unlock PDF", link: "/Pdfsecurity/Unlock-pdf" },
+          { icon: <FaLock size={16} />, label: "Lock PDF", link: "/Pdfsecurity/Lock-pdf" },
           { icon: <FaFileDownload size={16} />, label: "Flat PDF", link: "/drop-file" },
         ],
       },
