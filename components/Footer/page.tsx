@@ -281,7 +281,7 @@ export default function FooterSection() {
         <div className="w-full h-auto lg:px-[200px] md:px-[100px] sm:px-[100px] px-0 py-6 bg-[#06044B]">
           <div className="flex lg:justify-between md:justify-between sm:justify-between justify-center flex-wrap items-center gap-4 px-2">
             <div className="flex items-center gap-1 text-white lg:text-sm md:text-sm sm:text-sm text-[12px]">
-              <p>2025 Printable</p>
+              <p>2026 Printable</p>
               <GoDotFill className="text-white" />
               <p>All Right Reserved</p>
             </div>
