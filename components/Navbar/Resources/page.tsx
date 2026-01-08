@@ -76,10 +76,12 @@ const resourcesLinks = [
 ];
 
 const companyLinks = [
-  { label: "About Printable", link: "" },
+  { label: "About Printable", link: "/company/about" },
   { label: "Contact Us", link: "" },
-  { label: "Careers", link: "" },
-  { label: "Become a Merchant", link: "" },
+  { label: "Careers", link: "/company/partner" },
+  { label: "Become a Merchant", link: "/company/merchant" },
+  { label: "Terms and Conditions", link: "/terms-and-conditions" },
+  { label: "privacy and policy", link: "/privacy-policy" },
 ];
 
 const FooterLinks = () => {
@@ -106,12 +108,13 @@ const FooterLinks = () => {
         <ul className="space-y-4">
           {companyLinks.map((item, idx) => (
             <li key={idx}>
-              <Link
-                href={item.link}
-                className="text-gray-400 text-lg px-2 py-2 rounded-[10px] font-medium cursor-not-allowed bg-gray-100"
-              >
-                {item.label}
-              </Link>
+             <Link
+              href={item.link}
+              className="block w-[250px] text-black text-[17px] px-4 py-2 rounded-[10px] font-medium bg-white hover:bg-[#06044B] hover:text-white"
+            >
+              {item.label}
+            </Link>
+
             </li>
           ))}
         </ul>
