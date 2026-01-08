@@ -108,7 +108,7 @@ const FooterLinks = () => {
         <h2 className="text-gray-500 text-sm font-semibold mb-6 uppercase tracking-wider">Company</h2>
         <ul className="space-y-3">
           {companyLinks.map((item, idx) => (
-<<<<<<< HEAD
+
            <li key={idx}>
             <Link
               href={item.link}
@@ -118,16 +118,6 @@ const FooterLinks = () => {
             </Link>
           </li>
 
-=======
-            <li key={idx}>
-              <Link
-                href={item.link}
-                className="text-gray-400 text-lg px-2 py-2 rounded-[10px] font-medium cursor-not-allowed bg-gray-100"
-              >
-                {item.label}
-              </Link>
-            </li>
->>>>>>> abc249a82b4fd342cd5b0e0bdae8dc2fe6fb6d45
           ))}
         </ul>
       </div>
