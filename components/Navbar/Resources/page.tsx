@@ -68,14 +68,14 @@ import React from "react";
 import Link from "next/link";
 
 const resourcesLinks = [
-  { label: "Marketplace", link: null },
-  { label: "Blogs", link: "/printable-blog/blog" },
-  { label: "Support Docs", link: null },
-  { label: "Case Study", link: null },
-  { label: "API Docs", link: null },
+  { label: "Marketplace", link: "" }, // Disabled
+  { label: "Blogs", link: "" },       // Disabled
+  { label: "Support Docs", link: "" },
+  { label: "Case Study", link: "" },
+  { label: "API Docs", link: "" },
 ];
 
-const companyLinks =[
+const companyLinks = [
   { label: "About Printable", link: "/company/about" },
   { label: "Contact Us", link: "" },
   { label: "Careers", link: "/company/partner" },
@@ -84,38 +84,31 @@ const companyLinks =[
   { label: "privacy and policy", link: "/privacy-policy" },
 ];
 
+
 const FooterLinks = () => {
   return (
-    <div className="flex justify-start gap-28 lg:px-[200px] md:px-[100px] sm:px-[100px] px-4 py-6 lg:h-[450px] h-auto bg-white shadow-2xl">
-
-      {/* Resources */}
+    <div className="flex justify-start gap-28 lg:px-[200px] md:px-[100px] sm:px-[100px] px-4 py-6 lg:h-[450px] h-auto bg-white shadow-2xl z-100">
+      
+      {/* Resources Section - No routing */}
       <div>
-        <h2 className="text-gray-500 text-sm font-medium mb-4">Resources</h2>
-        <ul className="space-y-4">
+        <h2 className="text-gray-500 text-sm font-semibold mb-6 uppercase tracking-wider">Resources</h2>
+        <ul className="space-y-3">
           {resourcesLinks.map((item, idx) => (
             <li key={idx}>
-              {item.link ? (
-                <Link
-                  href={item.link}
-                  className="text-black text-lg hover:bg-[#06044B] hover:text-white px-2 py-2 rounded-[10px] font-medium transition"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <span className="text-gray-400 text-lg px-2 py-2 rounded-[10px] bg-gray-100 cursor-not-allowed">
-                  {item.label}
-                </span>
-              )}
+              <div className="text-gray-400 text-lg px-2 py-2 rounded-[10px] font-medium cursor-not-allowed bg-gray-100">
+                {item.label}
+              </div>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Company */}
+      {/* Company Section - Routes enabled */}
       <div>
-        <h2 className="text-gray-500 text-sm font-medium mb-4">Company</h2>
-        <ul className="space-y-4">
+        <h2 className="text-gray-500 text-sm font-semibold mb-6 uppercase tracking-wider">Company</h2>
+        <ul className="space-y-3">
           {companyLinks.map((item, idx) => (
+<<<<<<< HEAD
            <li key={idx}>
             <Link
               href={item.link}
@@ -125,6 +118,16 @@ const FooterLinks = () => {
             </Link>
           </li>
 
+=======
+            <li key={idx}>
+              <Link
+                href={item.link}
+                className="text-gray-400 text-lg px-2 py-2 rounded-[10px] font-medium cursor-not-allowed bg-gray-100"
+              >
+                {item.label}
+              </Link>
+            </li>
+>>>>>>> abc249a82b4fd342cd5b0e0bdae8dc2fe6fb6d45
           ))}
         </ul>
       </div>
