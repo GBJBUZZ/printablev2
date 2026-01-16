@@ -69,7 +69,7 @@ import Link from "next/link";
 
 const resourcesLinks = [
   { label: "Marketplace", link: "" }, // Disabled
-  { label: "Blogs", link: "" },       // Disabled
+  { label: "Blogs", link: "/printable-blog/blog" },       // Disabled
   { label: "Support Docs", link: "" },
   { label: "Case Study", link: "" },
   { label: "API Docs", link: "" },
@@ -89,20 +89,29 @@ const FooterLinks = () => {
   return (
     <div className="flex justify-start gap-28 lg:px-[200px] md:px-[100px] sm:px-[100px] px-4 py-6 lg:h-[450px] h-auto bg-white shadow-2xl z-100">
       
-      {/* Resources Section - No routing */}
+      {/* Resources Section - enable routing */}
       <div>
-        <h2 className="text-gray-500 text-sm font-semibold mb-6 uppercase tracking-wider">Resources</h2>
-        <ul className="space-y-3">
+        <h2 className="text-gray-500 text-sm font-medium mb-4">Resources</h2>
+        <ul className="space-y-4">
           {resourcesLinks.map((item, idx) => (
             <li key={idx}>
-              <div className="text-gray-400 text-lg px-2 py-2 rounded-[10px] font-medium cursor-not-allowed bg-gray-100">
-                {item.label}
-              </div>
+              {item.link ? (
+                <Link
+                  href={item.link}
+                  className="text-black text-lg hover:bg-[#06044B] hover:text-white px-2 py-2 rounded-[10px] font-medium transition"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <span className="text-gray-400 text-lg px-2 py-2 rounded-[10px] bg-gray-100 cursor-not-allowed">
+                  {item.label}
+                </span>
+              )}
             </li>
           ))}
         </ul>
       </div>
-
+      
       {/* Company Section - Routes enabled */}
       <div>
         <h2 className="text-gray-500 text-sm font-semibold mb-6 uppercase tracking-wider">Company</h2>
