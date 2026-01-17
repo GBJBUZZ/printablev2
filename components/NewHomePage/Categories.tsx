@@ -1,43 +1,68 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function Categories() {
-  const categories = [
+  const allCategories = [
     { img: "/H-1.png", content: "Business Cards" },
     { img: "/H-2.png", content: "Post Card & Advertising" },
     { img: "/H-3.png", content: "Banners & Posters" },
     { img: "/H-4.png", content: "Packing" },
     { img: "/H-5.png", content: "Promotional Products" },
     { img: "/H-6.png", content: "Stationary & Invitations" },
-    { img: "/H-7.png", content: "View all" },
+    { img: "/H-3.png", content: "Stickers & Labels" },
+    { img: "/H-4.png", content: "Calendars" },
+    { img: "/H-5.png", content: "Gift Cards" },
   ];
 
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleCategories = showAll
+    ? allCategories
+    : allCategories.slice(0, 6);
+
   return (
-    <div >
-      <div className="lg:pl-[200px] md:pl-[100px] sm:pl-[100px] pl-4 pb-30 bg-white">
-        <div>
-          <h1 className="text-black text-[32px] text-center lg:text-start md:text-start sm:text-start">
-            Explore all Categories
-          </h1>
-          <div className="flex lg:justify-start justify-center lg:gap-24 gap-10 flex-wrap items-center pl-8">
-            {categories.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col items-center lg:h-[100px] md:h-[100px] sm:h-[100px] h-auto lg:w-[100px] md:w-[100px] sm:w-[100px] w-[150px] py-4 lg:mt-0 md:mt-0 sm:mt-0 mt-2"
-              >
-                <div className="lg:h-[160px] md:h-[180px] sm:h-[180px] h-auto lg:w-[160px] md:w-[180px] sm:w-[180px] w-[150px] rounded-full overflow-visible">
-                  <Image
-                    src={item.img}
-                    alt={item.content}
-                    height={100}
-                    width={100}
-                    className="h-auto w-full transform transition-transform duration-300 hover:scale-125 hover:z-10 hover:cursor-pointer"
-                  />
-                </div>
-                <p className="text-center mt-4 text-black">{item.content}</p>
+    <div className="bg-white py-10">
+      <div className="lg:pl-[200px] md:pl-[100px] sm:pl-[100px] pl-4">
+        <h1 className="text-black text-[32px] text-center lg:text-start">
+          Explore all Categories
+        </h1>
+
+        {/* Categories */}
+        <div className="flex flex-wrap justify-center lg:justify-start gap-16 mt-10">
+          {visibleCategories.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col  items-center w-[150px]"
+            >
+              <div className="h-[160px] w-[160px] rounded-full overflow-hidden">
+                <Image
+                  src={item.img}
+                  alt={item.content}
+                  height={160}
+                  width={160}
+                  className="h-full w-full object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
+                />
               </div>
-            ))}
-          </div>
+              <p className="text-center mt-4 text-black">
+                {item.content}
+              </p>
+            </div>
+          ))}
+
+          {/* View All Button */}
+          {!showAll && (
+            <div
+              onClick={() => setShowAll(true)}
+              className="flex flex-col items-center w-[150px] cursor-pointer"
+            >
+              <div className="h-[160px] w-[160px] rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition">
+                <span className="text-black font-semibold text-lg">
+                  View All
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

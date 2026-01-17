@@ -295,7 +295,7 @@ function SignDocument() {
             </div>
             <div className="signerOptions bg-white p-[5px] flex flex-row h-[50px] rounded-md justify-between text-[12px]">
               <div
-                className={`onlyOther fade-in center rounded-md cursor-pointer flex-1 ${
+                className={`onlyOther fade-in center rounded-md cursor-pointer flex-1  gap-3 ${
                   onlyOther ? "bg-gray-200" : "bg-white"
                 }`}
                 onClick={() => setOnlyOther(true)}
@@ -320,7 +320,7 @@ function SignDocument() {
                 <span>Only Others</span>
               </div>
               <div
-                className={`youAndOther center rounded-md cursor-pointer p-2 ${
+                className={`youAndOther center rounded-md cursor-pointer p-2 gap-2 ${
                   onlyOther ? "bg-white" : "bg-gray-200"
                 }`}
                 onClick={() => setOnlyOther(false)}

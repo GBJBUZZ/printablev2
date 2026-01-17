@@ -109,31 +109,39 @@ const SigningTool = () => {
           <span className="ml-1 text-sm text-gray-500 font-semibold">
             (You)
           </span>
-          <button className="ml-auto text-gray-600 group relative">
-            {/* Outline icon (hover) */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              width={18}
-              height={18}
-              className="hidden group-hover:block"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={32}
-            >
-              <path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/>
-            </svg>
-            {/* Filled icon (default) */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              width={18}
-              height={18}
-              className="block group-hover:hidden"
-            >
-              <path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/>
-            </svg>
-          </button>
+       <button className="ml-auto text-black group relative rounded-full p-2 hover:bg-gray-200 transition-colors">
+
+          {/* Icon (hover – same visual) */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 128 512"
+            width={20}
+            height={20}
+            className="hidden group-hover:block"
+            fill="currentColor"
+          >
+            <circle cx="64" cy="120" r="28" />
+            <circle cx="64" cy="256" r="28" />
+            <circle cx="64" cy="392" r="28" />
+          </svg>
+
+          {/* Icon (default) */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 128 512"
+            width={20}
+            height={20}
+            className="block group-hover:hidden"
+            fill="currentColor"
+          >
+            <circle cx="64" cy="120" r="28" />
+            <circle cx="64" cy="256" r="28" />
+            <circle cx="64" cy="392" r="28" />
+          </svg>
+
+        </button>
+
+
         </div>
 
         <div className="space-y-1 text-sm">

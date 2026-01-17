@@ -57,13 +57,13 @@ const tools = [
       {
         title: "View & Edit",
         items: [
-          { icon: <FaPencilAlt size={16} />, label: "Edit PDF", link: "" },
-          { icon: <FaEdit size={16} />, label: "Annote PDF", link: "" },
-          { icon: <FaBookOpen size={16} />, label: "PDF Reader", link: "" },
-          { icon: <FaHashtag size={16} />, label: "Number Pages", link: "" },
-          { icon: <FaCrop size={16} />, label: "Crop PDF", link: "" },
-          { icon: <FaEraser size={16} />, label: "Redact PDF", link: "" },
-          { icon: <FaTint size={16} />, label: "Watermark PDF", link: "" },
+          { icon: <FaPencilAlt size={16} />, label: "Edit PDF", link: "/View-And-Edit/EditPdf" },
+          { icon: <FaEdit size={16} />, label: "Annote PDF", link: "/View-And-Edit/AnnotePdf" },
+          { icon: <FaBookOpen size={16} />, label: "PDF Reader", link: "/View-And-Edit/PdfReader" },
+          { icon: <FaHashtag size={16} />, label: "Number Pages", link: "/View-And-Edit/NumberPages" },
+          { icon: <FaCrop size={16} />, label: "Crop PDF", link: "/View-And-Edit/CropPdf" },
+          { icon: <FaEraser size={16} />, label: "Redact PDF", link: "/View-And-Edit/RedactPdf" },
+          { icon: <FaTint size={16} />, label: "Watermark PDF", link: "/View-And-Edit/WaterMarkPdf" },
         ],
       },
     ],
@@ -75,10 +75,11 @@ const tools = [
         items: [
           { icon: <FaObjectGroup size={16} />, label: "Merge PDF", link: "/Organize" },
           { icon: <FaCodeBranch size={16} />, label: "Split PDF", link: "/Organize-Split-PDF/Pdf-Upload" },
-          { icon: <FaRedo size={16} />, label: "Rotate PDF", link: "" },
-          { icon: <FaTrash size={16} />, label: "Delete PDF", link: "" },
-          { icon: <FaFileExport size={16} />, label: "Extract PDF", link: "" },
-          { icon: <FaTh size={16} />, label: "Organize PDF", link: "" },
+          { icon: <FaRedo size={16} />, label: "Rotate PDF", link: "/Organize/rotate-pdf" },
+          { icon: <FaTrash size={16} />, label: "Delete PDF", link: "/Organize/Delete-pdf" },
+          { icon: <FaFileExport size={16} />, label: "Extract PDF", link: "/Organize/Extract-pdf" },
+          { icon: <FaTh size={16} />, label: "Organize PDF", link: "/Organize/Organize-pdf" },
+
         ],
       },
     ],
@@ -88,8 +89,8 @@ const tools = [
       {
         title: "PDF Security",
         items: [
-          { icon: <FaUnlock size={16} />, label: "Unlock PDF", link: "" },
-          { icon: <FaLock size={16} />, label: "Lock PDF", link: "" },
+          { icon: <FaUnlock size={16} />, label: "Unlock PDF", link: "/Pdfsecurity/Unlock-pdf" },
+          { icon: <FaLock size={16} />, label: "Lock PDF", link: "/Pdfsecurity/Lock-pdf" },
           { icon: <FaFileDownload size={16} />, label: "Flat PDF", link: "/drop-file" },
         ],
       },
