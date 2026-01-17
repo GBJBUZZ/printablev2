@@ -151,7 +151,7 @@ export default function BlogDetailsPage() {
             <div className="flex items-start gap-5 mb-8">
               <div className="w-14 h-14 rounded-full overflow-hidden">
                 <Image
-                  src="/author.png"
+                  src="/author1.png"
                   alt="Joanna Wellick"
                   width={56}
                   height={56}
