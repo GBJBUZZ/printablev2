@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 :root {
     --background: black;
     --foreground: #171717;
