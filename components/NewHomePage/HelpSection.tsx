@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 export default function HelpSection() {
   return (
     <div className="lg:px-[200px] md:px-[100px] sm:px-[100px] px-4">
@@ -13,9 +13,11 @@ export default function HelpSection() {
             </div>
 
             <div className="py-4 flex justify-center items-center">
-              <button className="bg-white text-black px-4 py-2 rounded-[10px] text-[12px] flex justify-center items-center cursor-pointer">
-                Get Support
-              </button>
+              <Link href="/ai-chat">
+                <button className="bg-white text-black px-4 py-2 rounded-[10px] text-[12px] flex justify-center items-center cursor-pointer">
+                  Get Support
+                </button>
+              </Link>
             </div>
           </div>
         </div>
