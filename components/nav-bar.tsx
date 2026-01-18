@@ -13,14 +13,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs";
 import MainLogo from "@/public/main-log";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -30,7 +22,6 @@ import Convert from "@/components/Navbar/Convert/page";
 import Resources from "@/components/Navbar/Resources/page";
 
 export function NavBar() {
-  const User = useUser();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
@@ -44,7 +35,7 @@ export function NavBar() {
       className="bg-[#06044b] text-white w-full z-50 relative"
       onMouseLeave={() => setHoveredItem(null)}
     >
-      <div className="w-full mx-auto px-4 sm:px-6 ">
+      <div className="w-full mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Nav */}
           <div className="flex items-center">
@@ -52,7 +43,7 @@ export function NavBar() {
               <MainLogo />
             </Link>
 
-            <nav className="hidden md:flex md:space-x-6  items-center lg:ml-8">
+            <nav className="hidden md:flex md:space-x-6 items-center lg:ml-8">
               <span
                 className="cursor-pointer hover:text-[#61e987] flex items-center gap-2"
                 onMouseEnter={() => setHoveredItem("tools")}
@@ -87,12 +78,14 @@ export function NavBar() {
               >
                 E - Sign
               </Link>
+
               <Link
-                href={`/print-and-deliver/print`}
+                href="/print-and-deliver/print"
                 className="px-1 py-2 text-sm font-medium hover:text-[#61e987]"
               >
                 Print & Deliver
               </Link>
+
               <span
                 className="cursor-pointer hover:text-[#61e987]"
                 onMouseEnter={() => setHoveredItem("resources")}
@@ -114,6 +107,7 @@ export function NavBar() {
                 className="pl-10 pr-4 py-2 bg-white text-black rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-[#61e987]"
               />
             </div>
+
             {[Settings, Bell, ShoppingBag].map((Icon, idx) => (
               <Button
                 key={idx}
@@ -124,40 +118,33 @@ export function NavBar() {
                 <Icon className="h-5 w-5" />
               </Button>
             ))}
-            <SignedOut>
-              <div className="flex gap-1">
-                <SignInButton>
-                  <Button variant="ghost" className="text-white">
-                    Sign In
-                  </Button>
-                </SignInButton>
-                <SignUpButton>
-                  <Button
-                    variant="ghost"
-                    className="text-white border hover:bg-white/10"
-                  >
-                    Sign Up
-                  </Button>
-                </SignUpButton>
-              </div>
-            </SignedOut>
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
+
+            {/* Auth Links */}
+            <div className="flex gap-1">
+              <Link href="/signin">
+                <Button variant="ghost" className="text-white">
+                  Sign In
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button
+                  variant="ghost"
+                  className="text-white border hover:bg-white/10"
+                >
+                  Sign Up
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center gap-2">
-            <SignedOut>
-              <SignInButton>
-                <Button variant="ghost" size="sm" className="text-white">
-                  Sign In
-                </Button>
-              </SignInButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
+            <Link href="/signin">
+              <Button variant="ghost" size="sm" className="text-white">
+                Sign In
+              </Button>
+            </Link>
+
             <Button
               variant="ghost"
               size="icon"
@@ -191,7 +178,6 @@ export function NavBar() {
       {isMenuOpen && (
         <div className="md:hidden bg-[#06044b] border-t border-white/10 py-2">
           <div className="px-4 pt-2 pb-3 space-y-1">
-            {/* Tools with toggle */}
             <div>
               <button
                 onClick={() => toggleMobileDropdown("tools")}
@@ -202,7 +188,6 @@ export function NavBar() {
               {mobileDropdown === "tools" && <Tools />}
             </div>
 
-            {/* Convert with toggle */}
             <div>
               <button
                 onClick={() => toggleMobileDropdown("convert")}
@@ -213,7 +198,6 @@ export function NavBar() {
               {mobileDropdown === "convert" && <Convert />}
             </div>
 
-            {/* E-Sign (no dropdown) */}
             <Link
               href="/esign"
               className="block px-3 py-2 text-base font-medium hover:bg-[#06044b]/50 rounded-md"
@@ -221,15 +205,13 @@ export function NavBar() {
               E - Sign
             </Link>
 
-            {/* Print & Deliver */}
             <Link
-              href={`/print-and-deliver/print`}
+              href="/print-and-deliver/print"
               className="block px-3 py-2 text-base font-medium hover:bg-[#06044b]/50 rounded-md"
             >
               Print & Deliver
             </Link>
 
-            {/* Resources with toggle */}
             <div>
               <button
                 onClick={() => toggleMobileDropdown("resources")}
@@ -239,6 +221,13 @@ export function NavBar() {
               </button>
               {mobileDropdown === "resources" && <Resources />}
             </div>
+
+            <Link
+              href="/signup"
+              className="block px-3 py-2 text-base font-medium hover:bg-[#06044b]/50 rounded-md"
+            >
+              Sign Up
+            </Link>
           </div>
         </div>
       )}

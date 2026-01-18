@@ -92,3 +92,14 @@ body {
         @apply bg-background text-foreground;
     }
 }
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #6366f1;
+}
