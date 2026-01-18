@@ -76,10 +76,10 @@ const resourcesLinks = [
 ];
 
 const companyLinks = [
-  { label: "About Printable", link: "/about" },
+  { label: "About Printable", link: "/company/about" },
   { label: "Contact Us", link: "/contact" },
-  { label: "Careers", link: "/careers" },
-  { label: "Become a Merchant", link: "/merchant" },
+  { label: "Careers", link: "/company/partner" },
+  { label: "Become a Merchant", link: "/company/merchant" },
 ];
 
 const FooterLinks = () => {
@@ -94,7 +94,7 @@ const FooterLinks = () => {
             <li key={idx}>
               <Link
                 href={item.link}
-                className="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 text-lg px-3 py-2 rounded-[10px] font-medium transition-all duration-200"
+                className="block text-gray-600  hover:text-white hover:bg-[#06044B] text-lg px-3 py-2 rounded-[10px] font-medium transition-all duration-200"
               >
                 {item.label}
               </Link>
@@ -111,7 +111,7 @@ const FooterLinks = () => {
             <li key={idx}>
               <Link
                 href={item.link}
-                className="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 text-lg px-3 py-2 rounded-[10px] font-medium transition-all duration-200"
+                className="block text-gray-600  hover:text-white hover:bg-[#06044B] text-lg px-3 py-2 rounded-[10px] font-medium transition-all duration-200"
               >
                 {item.label}
               </Link>
