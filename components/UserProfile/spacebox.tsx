@@ -84,7 +84,7 @@ const ApexChart = () => {
   return (
     <div className="w-48 h-48 mx-auto lg:mx-0 flex-shrink-0">
       <ReactApexChart
-        // options={state.options}
+        options={state.options}
         series={state.series}
         type="radialBar"
         height={180}

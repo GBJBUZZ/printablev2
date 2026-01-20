@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Search,
   Settings,
@@ -15,7 +16,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   SignInButton,
-  SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
@@ -30,10 +30,26 @@ import Convert from "@/components/Navbar/Convert/page";
 import Resources from "@/components/Navbar/Resources/page";
 
 export function NavBar() {
-  const User = useUser();
+  const { isSignedIn } = useUser();
+  const router = useRouter();
+
+  const [mounted, setMounted] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // 🔥 INSTANT REDIRECT AFTER LOGIN
+  useEffect(() => {
+    if (isSignedIn) {
+      router.replace("/home");
+    }
+  }, [isSignedIn, router]);
+
+  if (!mounted) return null;
 
   const toggleMobileDropdown = (item: string) => {
     setMobileDropdown(mobileDropdown === item ? null : item);
@@ -41,10 +57,14 @@ export function NavBar() {
 
   return (
     <header
-      className="bg-[#06044b] text-white w-full z-50 relative"
+      className={`w-full z-50 relative ${
+        isSignedIn
+          ? "bg-[#06044b] text-white"
+          : "bg-white text-black lg:px-[200px]"
+      }`}
       onMouseLeave={() => setHoveredItem(null)}
     >
-      <div className="w-full mx-auto px-4 sm:px-6 ">
+      <div className="w-full">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Nav */}
           <div className="flex items-center">
@@ -52,7 +72,7 @@ export function NavBar() {
               <MainLogo />
             </Link>
 
-            <nav className="hidden md:flex md:space-x-6  items-center lg:ml-8">
+            <nav className="hidden md:flex md:space-x-6 items-center lg:ml-8">
               <span
                 className="cursor-pointer hover:text-[#61e987] flex items-center gap-2"
                 onMouseEnter={() => setHoveredItem("tools")}
@@ -87,12 +107,14 @@ export function NavBar() {
               >
                 E - Sign
               </Link>
+
               <Link
                 href={`/print-and-deliver/print`}
                 className="px-1 py-2 text-sm font-medium hover:text-[#61e987]"
               >
                 Print & Deliver
               </Link>
+
               <span
                 className="cursor-pointer hover:text-[#61e987]"
                 onMouseEnter={() => setHoveredItem("resources")}
@@ -104,43 +126,54 @@ export function NavBar() {
 
           {/* Right Desktop Actions */}
           <div className="hidden md:flex items-center space-x-2">
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-4 w-4 text-gray-400" />
+            <SignedIn>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-4 w-4 text-gray-400" />
+                </div>
+                <Input
+                  type="text"
+                  placeholder="Search"
+                  className="pl-10 pr-4 py-2 bg-white text-black rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-[#61e987]"
+                />
               </div>
-              <Input
-                type="text"
-                placeholder="Search"
-                className="pl-10 pr-4 py-2 bg-white text-black rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-[#61e987]"
-              />
-            </div>
-            {[Settings, Bell, ShoppingBag].map((Icon, idx) => (
-              <Button
-                key={idx}
-                variant="ghost"
-                size="icon"
-                className="text-white hover:bg-[#06044b]/50"
-              >
-                <Icon className="h-5 w-5" />
-              </Button>
-            ))}
+
+              {[Settings, Bell, ShoppingBag].map((Icon, idx) => (
+                <Button
+                  key={idx}
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:bg-[#06044b]/50"
+                >
+                  <Icon className="h-5 w-5" />
+                </Button>
+              ))}
+            </SignedIn>
+
             <SignedOut>
-              <div className="flex gap-1">
+              <div className="flex gap-3">
                 <SignInButton>
-                  <Button variant="ghost" className="text-white">
-                    Sign In
+                  <Button variant="ghost" className="text-black cursor-pointer">
+                    Login
                   </Button>
                 </SignInButton>
-                <SignUpButton>
-                  <Button
-                    variant="ghost"
-                    className="text-white border hover:bg-white/10"
-                  >
-                    Sign Up
-                  </Button>
-                </SignUpButton>
+
+                <Button
+                  variant="ghost"
+                  className="text-[#06044B] bg-[#61E987] cursor-pointer"
+                >
+                  DOWNLOAD
+                </Button>
+
+                <Button
+                  variant="ghost"
+                  className="text-[#61E987] bg-[#06044B] cursor-pointer"
+                >
+                  START FOR FREE
+                </Button>
               </div>
             </SignedOut>
+
             <SignedIn>
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
@@ -155,20 +188,18 @@ export function NavBar() {
                 </Button>
               </SignInButton>
             </SignedOut>
+
             <SignedIn>
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
+
             <Button
               variant="ghost"
               size="icon"
               className="text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -191,7 +222,6 @@ export function NavBar() {
       {isMenuOpen && (
         <div className="md:hidden bg-[#06044b] border-t border-white/10 py-2">
           <div className="px-4 pt-2 pb-3 space-y-1">
-            {/* Tools with toggle */}
             <div>
               <button
                 onClick={() => toggleMobileDropdown("tools")}
@@ -202,7 +232,6 @@ export function NavBar() {
               {mobileDropdown === "tools" && <Tools />}
             </div>
 
-            {/* Convert with toggle */}
             <div>
               <button
                 onClick={() => toggleMobileDropdown("convert")}
@@ -213,7 +242,6 @@ export function NavBar() {
               {mobileDropdown === "convert" && <Convert />}
             </div>
 
-            {/* E-Sign (no dropdown) */}
             <Link
               href="/esign"
               className="block px-3 py-2 text-base font-medium hover:bg-[#06044b]/50 rounded-md"
@@ -221,7 +249,6 @@ export function NavBar() {
               E - Sign
             </Link>
 
-            {/* Print & Deliver */}
             <Link
               href={`/print-and-deliver/print`}
               className="block px-3 py-2 text-base font-medium hover:bg-[#06044b]/50 rounded-md"
@@ -229,7 +256,6 @@ export function NavBar() {
               Print & Deliver
             </Link>
 
-            {/* Resources with toggle */}
             <div>
               <button
                 onClick={() => toggleMobileDropdown("resources")}
